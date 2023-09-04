@@ -91,7 +91,7 @@ public class HotelService {
     }
 
     public int getBookingCount(Integer aadharCard) {
-        User user=hotelManagementRepo.getUser(aadharCard);
+        User user=hotelManagementRepo.getUser(aadharCard.intValue());
         if(user==null)return 0;
         return user.getBookingCount();
     }
