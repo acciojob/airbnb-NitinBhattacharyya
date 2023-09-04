@@ -17,19 +17,19 @@ import java.util.UUID;
 @Service
 public class BookingService {
 
-    BookingRepository bookingRepository;
+    BookingRepository bookingRepository=new BookingRepository();
 
 
-    HotelRepository hotelRepository;
+    HotelRepository hotelRepository=new HotelRepository();
 
 
-    UserRepository userRepository;
-    @Autowired
-    public BookingService(BookingRepository bookingRepository, HotelRepository hotelRepository, UserRepository userRepository) {
-        this.bookingRepository = bookingRepository;
-        this.hotelRepository = hotelRepository;
-        this.userRepository = userRepository;
-    }
+    UserRepository userRepository=new UserRepository();
+//    @Autowired
+//    public BookingService(BookingRepository bookingRepository, HotelRepository hotelRepository, UserRepository userRepository) {
+//        this.bookingRepository = bookingRepository;
+//        this.hotelRepository = hotelRepository;
+//        this.userRepository = userRepository;
+//    }
 
     public int bookARoom(Booking booking) {
         String hotelName=booking.getHotelName();

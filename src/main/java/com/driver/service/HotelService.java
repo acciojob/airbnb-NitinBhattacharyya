@@ -12,11 +12,11 @@ import java.util.List;
 @Service
 public class HotelService {
 
-    HotelRepository hotelRepository;
-    @Autowired
-    public HotelService(HotelRepository hotelRepository) {
-        this.hotelRepository = hotelRepository;
-    }
+    HotelRepository hotelRepository=new HotelRepository();
+//    @Autowired
+//    public HotelService(HotelRepository hotelRepository) {
+//        this.hotelRepository = hotelRepository;
+//    }
 
     public String addHotelToDB(Hotel hotel) {
         HashMap<String,Hotel> map=hotelRepository.getHotelHashMap();
