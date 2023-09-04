@@ -75,9 +75,14 @@ public class HotelService {
         booking.setBookingId(String.valueOf(bookingID));
         hotelManagementRepo.addBooking(booking);
         User user=hotelManagementRepo.getUser(booking.getBookingAadharCard());
-        int currBookingCount= user.getBookingCount();
-        user.setBookingCount(currBookingCount+1);
-        hotelManagementRepo.addUser(user);
+        int currBookingCount=0;
+        if(user!=null){
+            currBookingCount=user.getBookingCount();
+            user.setBookingCount(currBookingCount+1);
+            hotelManagementRepo.addUser(user);
+        }
+
+
         return booking.getAmountToBePaid();
     }
 

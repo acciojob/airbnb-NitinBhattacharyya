@@ -9,12 +9,15 @@ import java.util.HashMap;
 
 @Repository
 public class HotelManagementRepo {
-    HashMap<String, Booking> bookingHashMap=new HashMap<>();
-    HashMap<String, Hotel> hotelHashMap=new HashMap<>();
-    HashMap<Integer, User> userHashMap=new HashMap<>();
+    HashMap<String, Booking> bookingHashMap;
+    HashMap<String, Hotel> hotelHashMap;
+    HashMap<Integer, User> userHashMap;
 
 
     public HotelManagementRepo() {
+        bookingHashMap=new HashMap<>();
+        hotelHashMap=new HashMap<>();
+        userHashMap=new HashMap<>();
     }
 
 
