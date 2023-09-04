@@ -11,8 +11,12 @@ import java.util.List;
 
 @Service
 public class HotelService {
-    @Autowired
+
     HotelRepository hotelRepository;
+    @Autowired
+    public HotelService(HotelRepository hotelRepository) {
+        this.hotelRepository = hotelRepository;
+    }
 
     public String addHotelToDB(Hotel hotel) {
         HashMap<String,Hotel> map=hotelRepository.getHotelHashMap();

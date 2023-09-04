@@ -16,14 +16,20 @@ import java.util.UUID;
 
 @Service
 public class BookingService {
-    @Autowired
+
     BookingRepository bookingRepository;
 
-    @Autowired
+
     HotelRepository hotelRepository;
 
-    @Autowired
+
     UserRepository userRepository;
+    @Autowired
+    public BookingService(BookingRepository bookingRepository, HotelRepository hotelRepository, UserRepository userRepository) {
+        this.bookingRepository = bookingRepository;
+        this.hotelRepository = hotelRepository;
+        this.userRepository = userRepository;
+    }
 
     public int bookARoom(Booking booking) {
         String hotelName=booking.getHotelName();
