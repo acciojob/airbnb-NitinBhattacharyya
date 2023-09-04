@@ -4,9 +4,9 @@ import com.driver.model.Booking;
 import com.driver.model.Facility;
 import com.driver.model.Hotel;
 import com.driver.model.User;
-import com.driver.service.BookingService;
+//import com.driver.service.BookingService;
 import com.driver.service.HotelService;
-import com.driver.service.UserService;
+//import com.driver.service.UserService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.PathVariable;
@@ -28,18 +28,6 @@ public class HotelManagementController {
 
     HotelService hotelService=new HotelService();
 
-
-    UserService userService=new UserService();
-
-
-    BookingService bookingService=new BookingService();
-//    @Autowired
-//    public HotelManagementController(HotelService hotelService, UserService userService, BookingService bookingService) {
-//        this.hotelService = hotelService;
-//        this.userService = userService;
-//        this.bookingService = bookingService;
-//    }
-
     @PostMapping("/add-hotel")
     public String addHotel(@RequestBody Hotel hotel){
 
@@ -55,7 +43,7 @@ public class HotelManagementController {
 
         //You need to add a User Object to the database
         //Assume that user will always be a valid user and return the aadharCardNo of the user
-       return userService.addUser(user);
+       return hotelService.addUser(user);
     }
 
     @GetMapping("/get-hotel-with-most-facilities")
@@ -78,14 +66,14 @@ public class HotelManagementController {
         //If there arent enough rooms available in the hotel that we are trying to book return -1 
         //in other case return total amount paid 
 
-        return bookingService.bookARoom(booking);
+        return hotelService.bookARoom(booking);
     }
     
     @GetMapping("/get-bookings-by-a-person/{aadharCard}")
     public int getBookings(@PathVariable("aadharCard")Integer aadharCard)
     {
         //In this function return the bookings done by a person
-        return userService.getBookingCount(aadharCard);
+        return hotelService.getBookingCount(aadharCard);
     }
 
     @PutMapping("/update-facilities")
