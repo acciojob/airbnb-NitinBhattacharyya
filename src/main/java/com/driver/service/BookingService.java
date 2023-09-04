@@ -47,6 +47,6 @@ public class BookingService {
         int currBookingCount= user.getBookingCount();
         user.setBookingCount(currBookingCount+1);
         userRepository.addUser(user);
-        return booking.getAmountToBePaid();
+        return price;
     }
 }

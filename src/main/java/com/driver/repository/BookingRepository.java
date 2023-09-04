@@ -8,7 +8,7 @@ import java.util.UUID;
 
 @Repository
 public class BookingRepository {
-    HashMap<String , Booking> bookingHashMap;
+    HashMap<String , Booking> bookingHashMap=new HashMap<>();
 
     public BookingRepository() {
     }
