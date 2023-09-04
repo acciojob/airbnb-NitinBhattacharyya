@@ -67,4 +67,13 @@ public class HotelManagementRepo {
     public void setUserHashMap(HashMap<Integer, User> userHashMap) {
         this.userHashMap = userHashMap;
     }
+
+    public int getBookingCount(Integer aadharCard) {
+        int count=0;
+        for(Booking booking:bookingHashMap.values())
+        {
+            if(booking.getBookingAadharCard()==aadharCard)count++;
+        }
+        return count;
+    }
 }

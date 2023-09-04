@@ -74,13 +74,13 @@ public class HotelService {
         UUID bookingID= UUID.randomUUID();
         booking.setBookingId(String.valueOf(bookingID));
         hotelManagementRepo.addBooking(booking);
-        User user=hotelManagementRepo.getUser(booking.getBookingAadharCard());
-        int currBookingCount=0;
-        if(user!=null){
-            currBookingCount=user.getBookingCount();
-            user.setBookingCount(currBookingCount+1);
-            hotelManagementRepo.addUser(user);
-        }
+//        User user=hotelManagementRepo.getUser(booking.getBookingAadharCard());
+//        int currBookingCount=0;
+//        if(user!=null){
+//            currBookingCount=user.getBookingCount();
+//            user.setBookingCount(currBookingCount+1);
+//            hotelManagementRepo.addUser(user);
+//        }
 
 
         return booking.getAmountToBePaid();
@@ -91,8 +91,10 @@ public class HotelService {
     }
 
     public int getBookingCount(Integer aadharCard) {
-        User user=hotelManagementRepo.getUser(aadharCard.intValue());
-        if(user==null)return 0;
-        return user.getBookingCount();
+//        User user=hotelManagementRepo.getUser(aadharCard.intValue());
+//        if(user==null)return 0;
+//        return user.getBookingCount();
+        return hotelManagementRepo.getBookingCount(aadharCard);
+
     }
 }
