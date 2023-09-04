@@ -36,7 +36,7 @@ public class BookingService {
         String hotelName=booking.getHotelName();
         if(hotelName==null)return -1;
         Hotel hotel=hotelRepository.getHotel(hotelName);
-        if(booking.getNoOfRooms()>hotel.getAvailableRooms() || hotel==null)return -1;
+        if(hotel==null || booking.getNoOfRooms()>hotel.getAvailableRooms() )return -1;
         int roomsRemaining=hotel.getAvailableRooms()-booking.getNoOfRooms();
         hotel.setAvailableRooms(roomsRemaining);
         hotelRepository.addHotelToDB(hotel);
