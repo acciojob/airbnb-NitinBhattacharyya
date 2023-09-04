@@ -32,9 +32,11 @@ public class BookingService {
 //    }
 
     public int bookARoom(Booking booking) {
+        if(booking==null)return -1;
         String hotelName=booking.getHotelName();
+        if(hotelName==null)return -1;
         Hotel hotel=hotelRepository.getHotel(hotelName);
-        if(booking.getNoOfRooms()>hotel.getAvailableRooms())return -1;
+        if(booking.getNoOfRooms()>hotel.getAvailableRooms() || hotel==null)return -1;
         int roomsRemaining=hotel.getAvailableRooms()-booking.getNoOfRooms();
         hotel.setAvailableRooms(roomsRemaining);
         hotelRepository.addHotelToDB(hotel);

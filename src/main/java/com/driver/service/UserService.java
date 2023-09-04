@@ -20,6 +20,7 @@ public class UserService {
 
     public int getBookingCount(Integer aadharCard) {
         User user=userRepository.getUser(aadharCard);
+        if(user==null)return 0;
         return user.getBookingCount();
     }
 }
